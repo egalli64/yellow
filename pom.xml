@@ -49,6 +49,6 @@
 				<version>3.3.2</version>
 			</plugin>
 		</plugins>
-		<finalName>jees</finalName>
+		<finalName>yellow</finalName>
 	</build>
 </project>
