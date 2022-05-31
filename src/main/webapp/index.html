@@ -13,16 +13,16 @@
                 <a href="#myprofile">My profile</a>
                 <input type="text" placeholder="Search..">
               </div>
-        <form>
+        <form action="/yellow/signIn" method="post">
         <figure>
             <img src="img/BookCollection.jpg" alt="Logo" width="90" height="90">
         </figure>
         <h1>Please sign in</h1>
-        <div class ="form-floating">
-            <input type ="Nome" class="form-control" id="floatingNome" placeholder="Mario">
+        <div class="form-floating">
+            <input name="first" class="form-control" id="floatingNome" placeholder="Mario">
             </div>
-            <div class ="form-floating">
-                <input type ="Cognome" class="form-control" id="floatingCognome" placeholder="Rossi">
+            <div class="form-floating">
+                <input name="last" class="form-control" id="floatingCognome" placeholder="Rossi">
                 </div>
         <div class ="form-floating">
         <input type ="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -31,7 +31,7 @@
         <input type ="password" class="form-control" id="floatingPassword" placeholder="password">
         </div>
         <div class ="form-floating">
-            <input type ="Username" class="form-control" id="floatingUsername" placeholder="Username">
+            <input name ="username" class="form-control" id="floatingUsername" placeholder="Username">
             </div>
           <div class="checkbox mb-3">
             <label><input type="checkbox" value="remember-me">Remember me</label>
