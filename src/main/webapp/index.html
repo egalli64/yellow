@@ -5,16 +5,39 @@
         <title>Book Collection</title>
         <link rel="stylesheet" href="css/yellow.css">
     </head>
-    <body>
-        <h1>Book Collection</h1>
+    <body class="text-center">
+        <main class="form-signin w-100 m-auto">
+            <div class="topnav">
+                <a class="active" href="#home">Home</a>
+                <a href="#genres">Genres</a>
+                <a href="#myprofile">My profile</a>
+                <input type="text" placeholder="Search..">
+              </div>
+        <form>
         <figure>
-            <img src="img/BookCollection.jpg" alt="Logo" width="70%">
+            <img src="img/BookCollection.jpg" alt="Logo" width="90" height="90">
         </figure>
-        <div>
-            <p>Home</p><p>Genres</p><p>Search</p><p>Myprofile</p>
+        <h1>Please sign in</h1>
+        <div class ="form-floating">
+            <input type ="Nome" class="form-control" id="floatingNome" placeholder="Mario">
+            </div>
+            <div class ="form-floating">
+                <input type ="Cognome" class="form-control" id="floatingCognome" placeholder="Rossi">
+                </div>
+        <div class ="form-floating">
+        <input type ="email" class="form-control" id="floatingInput" placeholder="name@example.com">
         </div>
-        <div>
-
+        <div class ="form-floating">
+        <input type ="password" class="form-control" id="floatingPassword" placeholder="password">
         </div>
+        <div class ="form-floating">
+            <input type ="Username" class="form-control" id="floatingUsername" placeholder="Username">
+            </div>
+          <div class="checkbox mb-3">
+            <label><input type="checkbox" value="remember-me">Remember me</label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    </form>
+        </main>
     </body>
 </html>
