@@ -22,25 +22,16 @@ public class SignIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 			String firstname = request.getParameter("firstname");
-			if (firstname == null || firstname.isBlank()) {
-				firstname = "Unknow";
-			}
 			String lastname = request.getParameter("lastname");
-			if (lastname == null || lastname.isBlank()) {
-				lastname = "Unknow";
-			}
 			String email = request.getParameter("email");
-			if (email == null || email.isBlank()) {
-				email = "Unknow";
-			}
 			String password = request.getParameter("password");
-			if (password == null || password.isBlank()) {
-				password = "Unknow";
-			}
 			String username = request.getParameter("username");
-			if (username == null || username.isBlank()) {
-				username = "Unknow";
-			}
+			
+			String url;
+			
+			if (firstname == null || firstname.isBlank()|| lastname == null || lastname.isBlank() || email == null || email.isBlank() || password == null || password.isBlank() || username == null || username.isBlank()) {
+				url="index.html";
+				
 			
 	}
 
