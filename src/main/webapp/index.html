@@ -15,23 +15,23 @@
               </div>
         <form action="/yellow/signIn" method="post">
         <figure>
-            <img src="img/BookCollection.jpg" alt="Logo" width="90" height="90">
+            <img src="img/BookCollection.jpg" alt="Logo" width="200" height="120">
         </figure>
         <h1>Please sign in</h1>
         <div class="form-floating">
-            <input name="first" class="form-control" id="floatingNome" placeholder="Mario">
+            <input name="firstname" class="form-control" id="floatingNome" placeholder="Mario" required>
             </div>
             <div class="form-floating">
-                <input name="last" class="form-control" id="floatingCognome" placeholder="Rossi">
+                <input name="lastname" class="form-control" id="floatingCognome" placeholder="Rossi" required>
                 </div>
         <div class ="form-floating">
-        <input type ="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type ="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
         </div>
         <div class ="form-floating">
-        <input type ="password" class="form-control" id="floatingPassword" placeholder="password">
+        <input type ="password" class="form-control" id="floatingPassword" placeholder="password" required>
         </div>
         <div class ="form-floating">
-            <input name ="username" class="form-control" id="floatingUsername" placeholder="Username">
+            <input name ="username" class="form-control" id="floatingUsername" placeholder="Username" required>
             </div>
           <div class="checkbox mb-3">
             <label><input type="checkbox" value="remember-me">Remember me</label>
