@@ -30,10 +30,10 @@ public class SignIn extends HttpServlet {
 			String url;
 			
 			if (firstname == null || firstname.isBlank()|| lastname == null || lastname.isBlank() || email == null || email.isBlank() || password == null || password.isBlank() || username == null || username.isBlank()) {
-				url="index.html";
-				
-			
+				url="index.jsp";			
 	}
-
+			else {
+				url= "home.html";
+			}
 	}
 }
