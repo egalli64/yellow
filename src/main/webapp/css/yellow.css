@@ -45,7 +45,20 @@ body {
     margin: 8px;
 }
 button {
+    color: black;
+    border-width: 3px;
     background-color: rgba(147, 88, 202, 0.692);
+    border-style: solid;
     font-size: 20px;
     line-height: 2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 20px;
+    border-color: darkorchid;
+}
+.text-center {
+    border-color: darkorchid;
+    border-width: 5px;
+    border-style: solid;
+    margin: 8px;
+    background-color: khaki;
 }
