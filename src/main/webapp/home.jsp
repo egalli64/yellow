@@ -51,6 +51,6 @@
 			</div>
 		</div>
 	</nav>
-	<p>Hello, ${user.username}</p>
+	<p>Hello, ${user.username}</p> 
 </body>
 </html>
