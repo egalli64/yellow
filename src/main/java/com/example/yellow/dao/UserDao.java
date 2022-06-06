@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 public class UserDao implements AutoCloseable {
 	private static final Logger log = LogManager.getLogger(UserDao.class);
-	private static final String GET_ALL = "SELECT user_id, first_name, last_name FROM user";
+	private static final String GET_ALL = "SELECT user_id, first_name, last_name, email, password, username FROM user";
 	private Connection conn;
 
 	public UserDao(DataSource ds) {
@@ -35,7 +35,7 @@ public class UserDao implements AutoCloseable {
 		try (Statement stmt = conn.createStatement(); //
 				ResultSet rs = stmt.executeQuery(GET_ALL)) {
 			while (rs.next()) {
-				User cur = new User(rs.getInt(1), rs.getString(2), rs.getString(3));
+				User cur = new User(rs.getInt(1), rs.getString(2), rs.getString(3), null, null, null);
 				results.add(cur);
 			}
 		} catch (SQLException se) {
