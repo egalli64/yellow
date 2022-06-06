@@ -27,7 +27,7 @@
 											alt="logo">
 									</div>
 
-									<form action="home.jsp">
+									<form action="/yellow/login" method="post">
 										<p>Please login</p>
 
 										<div class="form-outline mb-4">
