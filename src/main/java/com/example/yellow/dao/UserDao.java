@@ -22,8 +22,7 @@ public class UserDao implements AutoCloseable {
 	private static final String GET_BY_USER = """
 			SELECT user_id, first_name, last_name, email, password, username
 			FROM user
-			where username = ? AND password = ?
-			""";
+			where username = ? AND password = ? """;
 	private Connection conn;
 
 	public UserDao(DataSource ds) {
@@ -76,14 +75,17 @@ public class UserDao implements AutoCloseable {
 	public Optional<User> get(String username, String password) {
 		log.trace("called");
 
-		try (Statement stmt = conn.createStatement(); //
-				ResultSet rs = stmt.executeQuery(GET_BY_USER)) {
-			if (rs.next()) {
-				User cur = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6));
-				return Optional.of(cur);
-			} else {
-				return Optional.empty();
+		try (PreparedStatement stmt = conn.prepareStatement(GET_BY_USER)) {
+			stmt.setString(1, username);
+			stmt.setString(2, password);
+			try (ResultSet rs = stmt.executeQuery()) {
+				if (rs.next()) {
+					User cur = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+							rs.getString(5), rs.getString(6));
+					return Optional.of(cur);
+				} else {
+					return Optional.empty();
+				}
 			}
 		} catch (SQLException se) {
 			log.error("Can't get users: " + se.getMessage());
