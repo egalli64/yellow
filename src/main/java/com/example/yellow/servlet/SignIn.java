@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.example.yellow.dao.User;
 
 /**
  * Servlet implementation class SignIn
@@ -35,6 +38,9 @@ public class SignIn extends HttpServlet {
 				|| username.isBlank()) {
 			url = "index.jsp";
 		} else {
+			User user = new User(firstname, lastname, email, password, username);
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
 			url = "home.jsp";
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(url);
