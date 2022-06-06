@@ -29,6 +29,7 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		
 		try (UserDao dao = new UserDao(ds)) {
 			Optional<User> opt = dao.get(username, password);
 			if (opt.isEmpty()) {
