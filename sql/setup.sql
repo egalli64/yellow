@@ -35,7 +35,8 @@ create table book (
 	book_id int primary key AUTO_INCREMENT,
 	title varchar(40) not null,
 	author varchar(40) not null, 
-	genre varchar(20) not null
+	genre varchar(20) not null,
+    constraint title_author_UQ UNIQUE (title,author)
 );
 insert into book (title, author, genre)
 	values ('Divina Commedia', 'Dante Alighieri', 'Italian Literature');
