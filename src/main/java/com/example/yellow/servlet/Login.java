@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 import javax.annotation.Resource;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,7 +29,14 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
+
+		String url;
+
+		if (username == null || username.isBlank() || password == null || password.isBlank()) {
+			url = "index.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(url); rd.forward(request, response);
+		} 
+
 		try (UserDao dao = new UserDao(ds)) {
 			Optional<User> opt = dao.get(username, password);
 			if (opt.isEmpty()) {
