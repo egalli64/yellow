@@ -24,23 +24,22 @@
 										<img src="img/BookCollection2.jpg" style="width: 185px;"
 											alt="logo">
 									</div>
-
-									<form action="/yellow/insert/book" method="post">
+									<form action="/yellow/book/search" method="post">
 										<p>Find your book</p>
 
 										<div class="form-outline mb-4">
 											<input name="title" id="form2Example11" class="form-control"
-												placeholder="Title" required />
+												placeholder="Title" />
 										</div>
 
 										<div class="form-outline mb-4">
 											<input name="author" id="form2Example22" class="form-control"
-												placeholder="Author" required />
+												placeholder="Author" />
 										</div>
 
 										<div class="form-outline mb-4">
 											<input name="genre" id="form2Example22" class="form-control"
-												placeholder="Genre" required />
+												placeholder="Genre" />
 										</div>
 
 										<div class="text-center pt-1 mb-5 pb-1">

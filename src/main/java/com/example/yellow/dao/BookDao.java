@@ -19,28 +19,35 @@ public class BookDao implements AutoCloseable {
 	private static final Logger log = LogManager.getLogger(BookDao.class);
 	private static final String GET_ALL = "SELECT book_id, title, author, genre FROM book";
 	private static final String INSERT = "insert into book(title, author, genre) values (?, ?, ?)";
-	
+
 	// da controllare
 	private static final String GET_BY_TITLE = """
 			SELECT book_id, title, author, genre
 			FROM book
 			where title = ? """;
-	
+
 	private static final String GET_BY_AUTHOR = """
 			SELECT book_id, title, author, genre
 			FROM book
 			where author = ? """;
-	
+
 	private static final String GET_BY_AUTHOR_TITLE = """
 			SELECT book_id, title, author, genre
 			FROM book
 			where author = ? AND title = ?""";
-	
+
 	private static final String GET_BY_GENRE = """
 			SELECT book_id, title, author, genre
 			FROM book
 			where genre = ? """;
-	
+
+	private static final String SEARCH_BY_TITLE = """
+			SELECT book_id, title, author, genre
+			FROM book
+			where title like ? """;
+	// search by author
+	// search by genre
+
 	private Connection conn;
 
 	public BookDao(DataSource ds) {
@@ -70,8 +77,6 @@ public class BookDao implements AutoCloseable {
 
 		return results;
 	}
-	
-	
 
 	public boolean insert(Book book) {
 		try (PreparedStatement ps = conn.prepareStatement(INSERT)) {
@@ -80,8 +85,7 @@ public class BookDao implements AutoCloseable {
 			ps.setString(3, book.getGenre());
 			if (ps.executeUpdate() == 1) {
 				return true;
-			} 
-			else {
+			} else {
 				return false;
 			}
 		} catch (SQLException se) {
@@ -89,7 +93,7 @@ public class BookDao implements AutoCloseable {
 			return false;
 		}
 	}
-	
+
 	public Optional<Book> getAuthor(String author) {
 		log.trace("called");
 
@@ -127,7 +131,7 @@ public class BookDao implements AutoCloseable {
 			throw new IllegalStateException("Database issue " + se.getMessage());
 		}
 	}
-	
+
 	public Optional<Book> get(String author, String title) {
 		log.trace("called");
 
@@ -147,7 +151,7 @@ public class BookDao implements AutoCloseable {
 			throw new IllegalStateException("Database issue " + se.getMessage());
 		}
 	}
-	
+
 	public Optional<Book> getGenre(String genre) {
 		log.trace("called");
 
@@ -165,6 +169,28 @@ public class BookDao implements AutoCloseable {
 			log.error("Can't get genre: " + se.getMessage());
 			throw new IllegalStateException("Database issue " + se.getMessage());
 		}
+	}
+
+	public List<Book> searchByTitle(String title) {
+		log.trace("called");
+		List<Book> results = new ArrayList<>();
+
+		try (PreparedStatement stmt = conn.prepareStatement(SEARCH_BY_TITLE)) {
+			String pattern = "%" + title + "%";
+			stmt.setString(1, pattern);
+			log.trace("Statement: " + stmt);
+			try (ResultSet rs = stmt.executeQuery()) {
+				while (rs.next()) {
+					Book cur = new Book(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+					results.add(cur);
+				}
+			}
+		} catch (SQLException se) {
+			log.error("Can't get books: " + se.getMessage());
+			throw new IllegalStateException("Database issue " + se.getMessage());
+		}
+
+		return results;
 	}
 
 	@Override
