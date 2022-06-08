@@ -41,15 +41,16 @@
 							<li><a class="dropdown-item" href="#">Science Fiction</a></li>
 							<li><a class="dropdown-item" href="#">Thriller</a></li>
 							<li><a class="dropdown-item" href="#">Novel</a></li>
-							<li><a class="dropdown-item" href="#">Italian Literature</a></li>							
+							<li><a class="dropdown-item" href="#">Italian Literature</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="#">Something else
 									here</a></li>
 						</ul></li>
-					
+					<li class="nav-item"><a class="nav-link" href="searchBook.jsp">Bookshelf</a></li>
+
 					<li class="nav-item"><a class="nav-link disabled">Hello,
 							${user.username}!</a></li>
-				</ul>				
+				</ul>
 			</div>
 
 			<form class="d-flex" role="search">

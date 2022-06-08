@@ -26,7 +26,7 @@
 									</div>
 
 									<form action="/yellow/insert/book" method="post">
-										<p>Insert your book</p>
+										<p>Find your book</p>
 
 										<div class="form-outline mb-4">
 											<input name="title" id="form2Example11" class="form-control"
@@ -51,8 +51,8 @@
 									</form>
 									<div
 										class="d-flex align-items-center justify-content-center pb-4">
-										<p class="mb-0 me-2">Is your book already in the bookshelf?</p>
-										<a href="linklink">
+										<p class="mb-0 me-2">Can't find your book? Add a new one in the Bookshelf!</p>
+										<a href="insertBook.jsp">
 											<button type="button" class="btn btn-outline-danger">click here</button>
 										</a>
 									</div>
