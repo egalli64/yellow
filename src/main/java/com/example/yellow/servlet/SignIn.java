@@ -40,7 +40,7 @@ public class SignIn extends HttpServlet {
 				return;
 			} else {
 				HttpSession session = request.getSession();
-				session.setAttribute("user", dao.insert(user));
+				session.setAttribute("user", user);
 				request.getRequestDispatcher("myprofile.jsp").forward(request, response);
 				return;
 			}

@@ -30,12 +30,10 @@ public class InsertBook extends HttpServlet {
 		try (BookDao dao = new BookDao(ds)) {
 			Boolean flag = dao.insert(book);
 			if (flag == false) {
-				request.getRequestDispatcher("signIn.jsp").forward(request, response);
+				request.getRequestDispatcher("/insertBook.jsp").forward(request, response);
 				return;
 			} else {
-				HttpSession session = request.getSession();
-				session.setAttribute("book", dao.insert(book));
-				request.getRequestDispatcher("myprofile.jsp").forward(request, response);
+				request.getRequestDispatcher("/myprofile.jsp").forward(request, response);
 				return;
 			}
 		}
